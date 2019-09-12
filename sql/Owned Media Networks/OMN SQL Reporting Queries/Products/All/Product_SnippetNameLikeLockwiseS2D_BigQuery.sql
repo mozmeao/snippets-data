@@ -19,9 +19,9 @@ WHERE
  date >= '2019-04-01'
      AND date<= '2019-06-30'
 
- AND   lower(name) like "%%moz%"
+ AND   lower(name) like "%lockwise%s2d%"
 
- AND lower(category) = "email"
+
 
 
 
