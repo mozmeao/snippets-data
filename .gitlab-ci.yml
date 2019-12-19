@@ -1,0 +1,11 @@
+variables:
+  DOCKER_REPOSITORY: "mozorg/snippets"
+  JUPYTER_NOTEBOOK_IMAGE_TAG: "${DOCKER_REPOSITORY}:jupyter-notebooks-${CI_COMMIT_SHORT_SHA}"
+
+build-jupyter-notebooks-image:
+  tags:
+    oregon-b-shell
+  script:
+    - cd jupyter-notebooks
+    - docker build -t ${JUPYTER_NOTEBOOK_IMAGE_TAG} .
+    - docker push ${JUPYTER_NOTEBOOK_IMAGE_TAG}
