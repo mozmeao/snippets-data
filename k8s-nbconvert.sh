@@ -37,5 +37,5 @@ if [[ "$2" =~ "commit" ]]; then
     fi
     git add "$NOTEBOOK_PATH"
     git commit -m "$NOTEBOOK_PATH"
-    #git push
+    git push
 fi
