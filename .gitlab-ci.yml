@@ -1,3 +1,6 @@
+variables:
+  KUBECONFIG: /home/gitlab-runner/.kube/oregon-b.kubeconfig
+
 monthly:
   tags:
     - oregon-b-shell
