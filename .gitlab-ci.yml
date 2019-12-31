@@ -2,7 +2,7 @@ monthly:
   tags:
     - oregon-b-shell
   only:
-    - variables:
+    variables:
       - $MONTHLY
   script:
     - ./k8s-nbconvert.sh jupyter-notebooks/monthly-performance.ipynb commit-month
@@ -11,7 +11,7 @@ quarterly:
   tags:
     - oregon-b-shell
   only:
-    - variables:
+    variables:
       - $QUARTERLY
   script:
     - ./k8s-nbconvert.sh jupyter-notebooks/quarterly-performance.ipynb commit-quarter
