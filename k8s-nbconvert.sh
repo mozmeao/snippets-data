@@ -10,7 +10,7 @@ kubectl exec -n $NS $POD -- jupyter nbconvert --to notebook --execute --inplace 
 pushd $(mktemp -d)
 kubectl cp -n $NS $POD:"$NOTEBOOK" .
 if [[ "$2" =~ "commit" ]]; then
-    git clone --depth=1 -b ${BRANCH:=master} ${REPO:=github-mozmar-robot:mozmeao/snippets-private-data} snippets-private-data
+    git clone --depth=1 -b ${BRANCH:=master} ${REPO:=github.com:mozmeao/snippets-private-data} snippets-private-data
     pushd snippets-private-data
     if [[ $2 =~ month ]]; then
         YM=$(date --date="1 month ago" +%Y/%m)
