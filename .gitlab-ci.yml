@@ -1,6 +1,6 @@
 monthly:
   tags:
-    oregon-b-shell
+    - oregon-b-shell
   only:
     - variables:
       - $MONTHLY
@@ -9,7 +9,7 @@ monthly:
 
 quarterly:
   tags:
-    oregon-b-shell
+    - oregon-b-shell
   only:
     - variables:
       - $QUARTERLY
