@@ -4,7 +4,7 @@ NOTEBOOK_DIR=$(dirname $1)
 pushd $NOTEBOOK_DIR
 NOTEBOOK=$(basename $1)
 POD=$(kubectl get pods -n ${NS:=snippets-admin} | awk '/jupyter/{print $1}')
-kubectl cp "$NOTEBOOK" $POD:.
+kubectl cp -n $NS "$NOTEBOOK" $POD:.
 kubectl exec -n $NS $POD -- jupyter nbconvert --to notebook --execute --inplace "$NOTEBOOK"
 pushd $(mktemp -d)
 kubectl cp -n $NS $POD:"$NOTEBOOK" .
