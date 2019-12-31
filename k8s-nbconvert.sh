@@ -5,9 +5,9 @@ pushd $NOTEBOOK_DIR
 NOTEBOOK=$(basename $1)
 POD=$(kubectl get pods -n ${NS:=snippets-admin} | awk '/jupyter/{print $1}')
 kubectl cp "$NOTEBOOK" $POD:.
-kubectl exec $POD -- jupyter nbconvert --to notebook --execute --inplace "$NOTEBOOK"
+kubectl exec -n $NS $POD -- jupyter nbconvert --to notebook --execute --inplace "$NOTEBOOK"
 pushd $(mktemp -d)
-kubectl cp $POD:"$NOTEBOOK" .
+kubectl cp -n $NS $POD:"$NOTEBOOK" .
 if [[ "$2" =~ "commit" ]]; then
     git clone --depth=1 -b ${BRANCH:=master} ${REPO:=github-mozmar-robot:mozmeao/snippets-private-data} snippets-private-data
     pushd snippets-private-data
