@@ -9,6 +9,7 @@ monthly:
       - $MONTHLY
   script:
     - ./k8s-nbconvert.sh jupyter-notebooks/monthly-performance.ipynb commit-month
+    - curl ${DMS_URL}
 
 quarterly:
   tags:
